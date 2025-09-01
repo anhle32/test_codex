@@ -50,22 +50,13 @@ else:
     st.dataframe(df.head(10))
 
     # Priors from sidebar
-    # app.py — thay block tạo pri bằng đoạn sau
-pri = PriorConfig(
-    b1_mu=b1_mu,
-    b3_mu=default_priors.b3_mu,
-    b4_mu=b4_mu,
-    b6_mu=default_priors.b6_mu,
-    b7_mu=b7_mu,
-    b8_mu=default_priors.b8_mu,
-    b10_mu=default_priors.b10_mu,
-    b11_mu=default_priors.b11_mu,
-    b12_mu=default_priors.b12_mu,
-    b13_mu=b13_mu,
-    b14_mu=default_priors.b14_mu,
-    # (có thể để các sig_* mặc định, hoặc truyền nếu muốn)
-    lambda_prior=lambda_prior)
-
+    pri = PriorConfig(
+        b1_mu=b1_mu, b3_mu=default_priors.b3_mu, b4_mu=b4_mu, b6_mu=default_priors.b6_mu, b7_mu=b7_mu, b8_mu=default_priors.b8_mu,
+        b10_mu=default_priors.b10_mu, b11_mu=default_priors.b11_mu,
+        b12_mu=default_priors.b12_mu, b13_mu=b13_mu, b14_mu=default_priors.b14_mu,
+        sig_z_mu=0.01, sig_dq_mu=0.01, sig_u_mu=0.01, sig_pus_mu=0.01, sig_us_mu=0.01, sig_covid_mu=0.01,
+        lambda_prior=lambda_prior
+    )
 
     # Estimate (MAP)
     st.write("### 🔧 Estimating parameters (MAP)…")
